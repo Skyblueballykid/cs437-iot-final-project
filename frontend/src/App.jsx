@@ -7,7 +7,7 @@ import { Sparklines, SparklinesLine } from 'react-sparklines';
 
 
 
-const REACT_APP_GOOGLE_MAPS_API_KEY = "AIzaSyAr87Toq4g5_CsPvvggwmXzBYSfTOakZQc"
+const REACT_APP_GOOGLE_MAPS_API_KEY = import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY
 const mapProps = {
   center: {
     lat:  40.116421,
@@ -215,7 +215,7 @@ function App() {
         <Item>Realtime Weather Camera
             <br/>
             <div style={{ height: '40vh', width: '100%' }}>
-            <img src='weather-placeholder.png'></img>
+            <img src='./weather-placeholder.png'></img>
             </div>
           </Item>
         </Grid>
