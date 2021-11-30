@@ -254,7 +254,7 @@ function App() {
         <Item>Realtime Weather Camera
             <br/>
             <div style={{ height: '40vh', width: '100%' }}>
-            <iframe src="http://68.225.115.149:8081/" width="100%" height="250" title="Weather Cam"></iframe>
+            <iframe src="http://68.225.115.149:8081/" width="100%" height="220" title="Weather Cam"></iframe>
             </div>
           </Item>
         </Grid>
