@@ -6,12 +6,20 @@ import GoogleMapReact from 'google-map-react';
 import { Sparklines, SparklinesLine } from 'react-sparklines';
 
 
+const fetchData = () => {
+  fetch(`https://telemetry-dropoff.s3.us-west-2.amazonaws.com/telemetry.json`)
+    .then((response) => response.json())
+    .then((json) => {
+      console.log(json);
+    })};
+
+fetchData();
 
 const REACT_APP_GOOGLE_MAPS_API_KEY = import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY
 const mapProps = {
   center: {
-    lat:  40.116421,
-    lng: -88.243385
+    lat:  32.55705117,
+    lng: -83.65685342
   },
   zoom: 10
 };

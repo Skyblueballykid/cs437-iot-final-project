@@ -1,0 +1,1 @@
+[{"timestamp": "2021-11-29 00:06:42.224299", "temperature_fahrenheit": 46, "humidity": 76, "wind_mph": 5, "gps_latitude": 32.55705117, "gps_longitude": -83.65685342}]
