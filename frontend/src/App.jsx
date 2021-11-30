@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { styled } from '@mui/material/styles';
 import { Typography, Box, Paper, Grid, Breadcrumbs, Link } from '@mui/material';
 import Chart from "react-apexcharts";
@@ -6,20 +6,11 @@ import GoogleMapReact from 'google-map-react';
 import { Sparklines, SparklinesLine } from 'react-sparklines';
 
 
-const fetchData = () => {
-  fetch(`https://telemetry-dropoff.s3.us-west-2.amazonaws.com/telemetry.json`)
-    .then((response) => response.json())
-    .then((json) => {
-      console.log(json);
-    })};
-
-fetchData();
-
 const REACT_APP_GOOGLE_MAPS_API_KEY = import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY
 const mapProps = {
   center: {
-    lat:  32.55705117,
-    lng: -83.65685342
+    lat:  40.116421,
+    lng: -88.243385
   },
   zoom: 10
 };
@@ -70,8 +61,6 @@ var tempOptions = {
   labels: ["Temperature"]
 };
 
-var tempSeries = [67];
-
 var humidityOptions = {
   chart: {
     height: 80,
@@ -110,7 +99,6 @@ var humidityOptions = {
   labels: ["Humidity"]
 };
 
-var humiditySeries = [55];
 
 var windSpeedOptions = {
   chart: {
@@ -150,14 +138,56 @@ var windSpeedOptions = {
   labels: ["Wind Speed"]
 };
 
-var windSpeedSeries = [21];
 
 function App() {
+
+  const [data, setData] = useState([]);
+  const [tempSeries, setTempSeries] = useState([]);
+  const [humiditySeries, setHumiditySeries] = useState([]);
+  const [windSpeedSeries, setWindSpeedSeries] = useState([]);
+  const [timestamp, setTimeStamp] = useState('');
+  const [lat, setLat] = useState('');
+  const [long, setLong] = useState('');
+  const [toggle, setToggle] = useState(false);
+  const [mapState, setMapState] = useState({
+    center: {
+      lat:  '',
+      lng: ''
+    },
+    zoom: 10
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`https://telemetry-dropoff.s3.us-west-2.amazonaws.com/telemetry.json`);
+      const res = await response.json();
+      setData(res);
+      setTempSeries(res.map(item => item.temperature_fahrenheit));
+      setHumiditySeries(res.map(item => item.humidity));
+      setWindSpeedSeries(res.map(item => item.wind_mph));
+      setTimeStamp(res[0].timestamp);
+      setLat(res[0].gps_latitude);
+      setLong(res[0].gps_longitude);
+      setMapState({    
+        center: {
+        lat:  res[0].gps_latitude,
+        lng: res[0].gps_longitude
+      },
+      zoom: 10
+    })
+    setToggle(true);
+    };
+    fetchData();
+  }, []);
+
   return (
+    <>
+    {console.log(data)}
     <Box sx={{ flexGrow: 1 }}>
       <Typography variant="h3">Team Thundercats Realtime Weather Detection Final Project</Typography> 
       <br/>
       <br/>
+      {timestamp ? <p>Date and time: {timestamp}</p> : null}
       <Grid 
       container
       spacing={1}>
@@ -213,9 +243,10 @@ function App() {
           <div style={{ height: '25vh', width: '100%' }}>
           <GoogleMapReact
             bootstrapURLKeys={{ key: REACT_APP_GOOGLE_MAPS_API_KEY }}
-            center={mapProps.center}
+            center={toggle ? mapState.center : mapProps.center}
             defaultZoom={mapProps.zoom}
         ></GoogleMapReact></div>
+          {lat && long ? <p>Latitude: {lat}, &nbsp; Longitude: {long}</p> : null}
           </Item>
         </Grid>
         <br/>
@@ -230,6 +261,7 @@ function App() {
         </Grid>
       </Grid>
     </Box>
+    </>
   );
 }
 
