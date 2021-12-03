@@ -4,7 +4,7 @@ import { Typography, Box, Paper, Grid, Breadcrumbs, Link } from '@mui/material';
 import Chart from "react-apexcharts";
 import GoogleMapReact from 'google-map-react';
 import { Sparklines, SparklinesLine } from 'react-sparklines';
-
+import { Donut, White } from 'react-dial-knob';
 
 const REACT_APP_GOOGLE_MAPS_API_KEY = import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY
 const mapProps = {
@@ -22,44 +22,6 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-
-var tempOptions = {
-  chart: {
-    height: 80,
-    type: "radialBar"
-  },
-  
-  series: [67],
-  
-  plotOptions: {
-    radialBar: {
-      hollow: {
-        margin: 15,
-        size: "70%"
-      },
-     
-      dataLabels: {
-        showOn: "always",
-        name: {
-          offsetY: -10,
-          show: true,
-          color: "#888",
-          fontSize: "13px"
-        },
-        value: {
-          color: "#111",
-          fontSize: "30px",
-          show: true
-        }
-      }
-    }
-  },
-
-  stroke: {
-    lineCap: "round",
-  },
-  labels: ["Temperature"]
-};
 
 var humidityOptions = {
   chart: {
@@ -97,45 +59,6 @@ var humidityOptions = {
     lineCap: "round",
   },
   labels: ["Humidity"]
-};
-
-
-var windSpeedOptions = {
-  chart: {
-    height: 80,
-    type: "radialBar"
-  },
-  
-  series: [67],
-  
-  plotOptions: {
-    radialBar: {
-      hollow: {
-        margin: 15,
-        size: "70%"
-      },
-     
-      dataLabels: {
-        showOn: "always",
-        name: {
-          offsetY: -10,
-          show: true,
-          color: "#888",
-          fontSize: "13px"
-        },
-        value: {
-          color: "#111",
-          fontSize: "30px",
-          show: true
-        }
-      }
-    }
-  },
-
-  stroke: {
-    lineCap: "round",
-  },
-  labels: ["Wind Speed"]
 };
 
 
@@ -187,6 +110,28 @@ function App() {
       <Typography variant="h3">Team Thundercats Realtime Weather Detection Final Project</Typography> 
       <br/>
       <br/>
+      <div role="presentation">
+      <Breadcrumbs aria-label="breadcrumb">
+        <Link underline="hover" color="inherit" href="/">
+          Home
+        </Link>
+        <Link
+          underline="hover"
+          color="inherit"
+          href="/"
+        >
+          Audio Recognition
+        </Link>
+        <Link
+          underline="hover"
+          color="inherit"
+          href="/"
+        >
+          Item Recognition
+        </Link>
+      </Breadcrumbs>
+    </div>
+    <br/>
       {timestamp ? <p>Date and time: {timestamp}</p> : null}
       <Grid 
       container
@@ -198,39 +143,60 @@ function App() {
         justifyContent="center"
         alignItems="center" 
         xs={6}>
-          <br/>
           <Item>
+          <div style={{ height: '75vh', width: '100%' }}>
+          <br/>
           Sensor Readings
           <br/>
-          <Chart
-              options={tempOptions}
-              series={tempSeries}
-              type="radialBar"
-              width="170"
-            />
+            <White
+            style={{position: "absolute", top: "40%", left: "25%", transform: "translate(-50%, -50%)"}}
+            diameter={100}
+            min={0}
+            max={120}
+            step={1}
+            value={tempSeries}
+            theme={{
+                activeNotchColor: 'blue',
+                defaultNotchColor: 'floralwhite'
+            }}
+            ariaLabelledBy={'temp'}
+        >
+        <label id={'temp'}>Temperature &#176; F</label>
+    </White>
             <br/>
-        <Sparklines data={[5, 10, 5, 20]} limit={5} width={700} height={50} margin={1}>
+        {/* <Sparklines data={[5, 10, 5, 20]} limit={5} width={700} height={50} margin={1}>
           <SparklinesLine color="blue" />
-        </Sparklines>
-          <Chart
-              options={humidityOptions}
-              series={humiditySeries}
-              type="radialBar"
-              width="170"
-            />
-        <Sparklines data={[66, 32, 81, 19]} limit={5} width={700} height={50} margin={1}>
+        </Sparklines> */}
+        <Chart
+          style={{position: "absolute", top: "60%", left: "25%", transform: "translate(-50%, -50%)"}}
+            options={humidityOptions}
+            series={humiditySeries}
+            type="radialBar"
+            width="180"
+          />
+        {/* <Sparklines data={[66, 32, 81, 19]} limit={5} width={700} height={50} margin={1}>
           <SparklinesLine color="blue" />
-        </Sparklines>
-           <Chart
-              options={windSpeedOptions}
-              series={windSpeedSeries}
-              type="radialBar"
-              width="170"
-            />
-          <Sparklines data={[6, 3, 12, 3]} limit={5} width={700} height={50} margin={1}>
+        </Sparklines> */}
+        <White
+        style={{position: "absolute", top: "80%", left: "25%", transform: "translate(-50%, -50%)"}}
+        diameter={100}
+        min={0}
+        max={100}
+        step={1}
+        value={windSpeedSeries}
+        theme={{
+          activeNotchColor: 'blue',
+          defaultNotchColor: 'floralwhite'
+      }}
+        ariaLabelledBy={'wind'}
+    >
+        <label id={'wind'}>Wind Speed (MPH)</label>
+    </White>
+    </div>
+    </Item>
+          {/* <Sparklines data={[6, 3, 12, 3]} limit={5} width={700} height={50} margin={1}>
           <SparklinesLine color="blue" />
-        </Sparklines>
-        </Item>
+        </Sparklines> */}
         </Grid>
         <Grid 
         item
@@ -253,7 +219,7 @@ function App() {
         <Grid item xs>
         <Item>Realtime Weather Camera
             <br/>
-            <div style={{ height: '40vh', width: '100%' }}>
+            <div style={{ height: '33vh', width: '100%' }}>
             <iframe src="https://68.225.115.149:8443/" width="100%" height="220" title="Weather Cam"></iframe>
             </div>
           </Item>
