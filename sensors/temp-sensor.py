@@ -39,11 +39,10 @@ def main():
 
     while True:
         temp_telemetry = TempTelemetry(
-            timestamp=str(datetime.datetime.now()),
+            timestamp=str(datetime.datetime.now())[:16],
             temperature_fahrenheit=celsius_to_fahrenheit(sht.temperature),
             humidity=sht.relative_humidity,
         )
-        print(temp_telemetry.timestamp)
         print("Temperature: %0.1f f" % temp_telemetry.temperature_fahrenheit)
         print("Humidity: %0.1f %%\n" % temp_telemetry.humidity)
         json_dumped = json.dumps([temp_telemetry.__rep__()])

@@ -28,7 +28,7 @@ def main():
     for gps_data in client.dict_stream(convert_datetime=False):
         if gps_data["class"] == "TPV":
             gps_telemetry = GPSTelemetry(
-                timestamp=str(datetime.datetime.now()),
+                timestamp=str(datetime.datetime.now())[:16],
                 gps_latitude=gps_data.get("lat", "n/a"),
                 gps_longitude=gps_data.get("lon", "n/a"),
             )
