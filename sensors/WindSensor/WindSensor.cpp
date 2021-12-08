@@ -1,4 +1,4 @@
-int sensorPin = A0;
+int sensorPin = A1;
  
 void setup()
 {
@@ -9,25 +9,22 @@ void setup()
 void loop()
 {
   float sensorValue = analogRead(sensorPin);
-  //Serial.print("Analog Value =");
-  //Serial.println(sensorValue);
+  Serial.print("Analog Value =");
+  Serial.println(sensorValue);
   
   float voltage = (sensorValue / 1023) * 5;
-  
-  //Serial.print("Voltage =");
-  //Serial.print(voltage);
-  //Serial.println(" V");
-  
+  Serial.print("Voltage =");
+  Serial.print(voltage);
+  Serial.println(" V");
+ 
   float wind_speed = mapfloat(voltage, 0.4, 2, 0, 32.4);
   float speed_mph = ((wind_speed *3600)/1609.344);
-  
-  //Serial.print("Wind Speed =");
-  //Serial.print(wind_speed);
-  //Serial.println("m/s");
-  
+  Serial.print("Wind Speed =");
+  Serial.print(wind_speed);
+  Serial.println("m/s");
   Serial.print(speed_mph);
-  //Serial.println("mph");
-  //Serial.println(" ");
+  Serial.println("mph");
+  Serial.println(" ");
   delay(3000);
 }
  
