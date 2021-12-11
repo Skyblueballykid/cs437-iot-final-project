@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from gpsdclient import GPSDClient
 import argparse
 import json

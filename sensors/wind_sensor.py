@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import time
 import json
 import datetime
@@ -33,7 +35,7 @@ def main():
             if arduino_serial_out:
                 wind_sensor = WindSensor(
                     timestamp=str(datetime.datetime.now())[:16],
-                    wind_speed=arduino_serial_out,
+                    wind_speed=arduino_serial_out.strip(),
                 )
                 json_dumped = json.dumps([wind_sensor.__rep__()])
                 write_file(json_dumped, data_path + FILE_NAME)
