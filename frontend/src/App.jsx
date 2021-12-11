@@ -125,7 +125,7 @@ function App() {
           Sensor Readings
           <br/>
             <White
-            style={{position: "absolute", top: "50%", left: "25%", transform: "translate(-50%, -50%)"}}
+            style={{position: "absolute", top: "70%", left: "10%", transform: "translate(-50%, -50%)"}}
             diameter={100}
             min={0}
             max={120}
@@ -154,7 +154,7 @@ function App() {
           <SparklinesLine color="blue" />
         </Sparklines> */}
         <White
-        style={{position: "absolute", top: "90%", left: "25%", transform: "translate(-50%, -50%)"}}
+        style={{position: "absolute", top: "70%", left: "40%", transform: "translate(-50%, -50%)"}}
         diameter={100}
         min={0}
         max={100}
