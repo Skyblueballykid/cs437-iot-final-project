@@ -13,6 +13,7 @@ import argparse
 import pyaudio
 import wave
 import time
+import librosa
 import zipfile
 from tflite_runtime.interpreter import Interpreter
 
@@ -81,7 +82,7 @@ def get_live_input():
             # reshape for input 
             audio_data = audio_data.reshape((nbytes, 2))
             # run inference on audio data 
-            run_inference(audio_data)
+            return run_inference(audio_data)
     except KeyboardInterrupt:
         print("exiting...")
            
@@ -205,7 +206,9 @@ def run_inference(waveform):
 
     if labels[top_class_index] in (weather_sounds or animal_sounds):
         print(labels[top_class_index])
-
+        return labels[top_class_index]
+    else:
+        return " "
 
 def main():
 
@@ -225,9 +228,16 @@ def main():
 
     # test WAV file
     if args.wavfile_name:
+        sampling_rate = 16000
         wavfile_name = args.wavfile_name
+        
         # get audio data 
-        rate, waveform = wavfile.read(wavfile_name)
+        original_rate, waveform = wavfile.read(wavfile_name)
+
+        # resample data
+        number_of_samples = round(len(waveform) * float(sampling_rate) / original_rate)
+        waveform = signal.resample(waveform, number_of_samples)
+        
         # run inference
         run_inference(waveform)
     else:
