@@ -5,7 +5,7 @@ import {
   BrowserRouter,
   Routes,
   Route
-} from "react-router-dom"
+} from "react-router-dom";
 import { Typography, Box, Paper, Grid, Breadcrumbs } from '@mui/material';
 import { Link } from "react-router-dom";
 
