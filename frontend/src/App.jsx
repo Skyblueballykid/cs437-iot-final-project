@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import { styled } from '@mui/material/styles';
-import { Typography, Box, Paper, Grid, Breadcrumbs, Link } from '@mui/material';
+import { Typography, Box, Paper, Grid, Breadcrumbs } from '@mui/material';
 import Chart from "react-apexcharts";
 import GoogleMapReact from 'google-map-react';
 import { Sparklines, SparklinesLine } from 'react-sparklines';
 import { Donut, White } from 'react-dial-knob';
+import { Link } from "react-router-dom";
 
 const REACT_APP_GOOGLE_MAPS_API_KEY = import.meta.env.VITE_APP_GOOGLE_MAPS_API_KEY
 const mapProps = {
@@ -105,32 +106,7 @@ function App() {
 
   return (
     <>
-    {console.log(data)}
     <Box sx={{ flexGrow: 1 }}>
-      <Typography variant="h3">Team Thundercats Realtime Weather Detection Final Project</Typography> 
-      <br/>
-      <br/>
-      <div role="presentation">
-      <Breadcrumbs aria-label="breadcrumb">
-        <Link underline="hover" color="inherit" href="/">
-          Home
-        </Link>
-        <Link
-          underline="hover"
-          color="inherit"
-          href="/"
-        >
-          Audio Recognition
-        </Link>
-        <Link
-          underline="hover"
-          color="inherit"
-          href="/"
-        >
-          Item Recognition
-        </Link>
-      </Breadcrumbs>
-    </div>
     <br/>
       {timestamp ? <p>Date and time: {timestamp}</p> : null}
       <Grid 
@@ -149,7 +125,7 @@ function App() {
           Sensor Readings
           <br/>
             <White
-            style={{position: "absolute", top: "40%", left: "25%", transform: "translate(-50%, -50%)"}}
+            style={{position: "absolute", top: "50%", left: "25%", transform: "translate(-50%, -50%)"}}
             diameter={100}
             min={0}
             max={120}
@@ -168,7 +144,7 @@ function App() {
           <SparklinesLine color="blue" />
         </Sparklines> */}
         <Chart
-          style={{position: "absolute", top: "60%", left: "25%", transform: "translate(-50%, -50%)"}}
+          style={{position: "absolute", top: "70%", left: "25%", transform: "translate(-50%, -50%)"}}
             options={humidityOptions}
             series={humiditySeries}
             type="radialBar"
@@ -178,7 +154,7 @@ function App() {
           <SparklinesLine color="blue" />
         </Sparklines> */}
         <White
-        style={{position: "absolute", top: "80%", left: "25%", transform: "translate(-50%, -50%)"}}
+        style={{position: "absolute", top: "90%", left: "25%", transform: "translate(-50%, -50%)"}}
         diameter={100}
         min={0}
         max={100}
