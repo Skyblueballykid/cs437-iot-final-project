@@ -34,7 +34,7 @@ def main():
                 gps_latitude=gps_data.get("lat", "n/a"),
                 gps_longitude=gps_data.get("lon", "n/a"),
             )
-            json_dumped = json.dumps([gps_sensor.__rep__()])
+            json_dumped = json.dumps([gps_sensor.__rep__()], indent=4)
             write_file(json_dumped, data_path + FILE_NAME)
 
 

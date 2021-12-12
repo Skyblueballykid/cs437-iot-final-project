@@ -47,7 +47,7 @@ def main():
         )
         print("Temperature: %0.1f f" % temp_sensor.temperature_fahrenheit)
         print("Humidity: %0.1f %%\n" % temp_sensor.humidity)
-        json_dumped = json.dumps([temp_sensor.__rep__()])
+        json_dumped = json.dumps([temp_sensor.__rep__()], indent=4)
         write_file(json_dumped, data_path + FILE_NAME)
         time.sleep(SLEEP_TIME)
 
