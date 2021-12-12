@@ -66,6 +66,10 @@ var humidityOptions = {
 function App() {
 
   const [data, setData] = useState([]);
+  const [hist, setHist] = useState([]);
+  const [historicalTemp, setHistoricalTemp] = useState([]);
+  const [historicalHumidity, setHistoricalHumidity] = useState([]);
+  const [historicalWind, setHistoricalWind] = useState([]);
   const [tempSeries, setTempSeries] = useState([]);
   const [humiditySeries, setHumiditySeries] = useState([]);
   const [windSpeedSeries, setWindSpeedSeries] = useState([]);
@@ -101,14 +105,29 @@ function App() {
     })
     setToggle(true);
     };
+
+  const fetchHistorical = async () => {
+    const response = await fetch(`https://telemetry-dropoff.s3.us-west-2.amazonaws.com/historical/telemetry.json`);
+    const res = await response.json();
+    setHist(res.map(item => item[0]));
+    setHistoricalTemp(res.map(item => item.map(i => i.temperature_fahrenheit)));
+    setHistoricalHumidity(res.map(item => item.map(i => i.humidity)));
+    setHistoricalWind(res.map(item => item.map(i => i.wind_mph)));
+    console.log(res);
+    console.log(hist);
+    console.log(historicalTemp);
+    console.log(historicalHumidity);
+    console.log(historicalWind);
+  }
     fetchData();
+    fetchHistorical();
   }, []);
 
   return (
     <>
     <Box sx={{ flexGrow: 1 }}>
     <br/>
-      {timestamp ? <p>Date and time: {timestamp}</p> : null}
+      {timestamp ? <p><b>Date and time: {timestamp}</b></p> : null}
       <Grid 
       container
       spacing={1}>
@@ -120,7 +139,8 @@ function App() {
         alignItems="center" 
         xs={6}>
           <Item>
-          <div style={{ height: '75vh', width: '100%' }}>
+          <div style={{ height: '85vh', width: '100%' }}>
+          <div style={{ height: '45vh', width: '100%' }}>
           <br/>
           Sensor Readings
           <br/>
@@ -139,10 +159,6 @@ function App() {
         >
         <label id={'temp'}>Temperature &#176; F</label>
     </White>
-            <br/>
-        {/* <Sparklines data={[5, 10, 5, 20]} limit={5} width={700} height={50} margin={1}>
-          <SparklinesLine color="blue" />
-        </Sparklines> */}
         <Chart
           style={{position: "absolute", top: "70%", left: "25%", transform: "translate(-50%, -50%)"}}
             options={humidityOptions}
@@ -150,9 +166,6 @@ function App() {
             type="radialBar"
             width="180"
           />
-        {/* <Sparklines data={[66, 32, 81, 19]} limit={5} width={700} height={50} margin={1}>
-          <SparklinesLine color="blue" />
-        </Sparklines> */}
         <White
         style={{position: "absolute", top: "70%", left: "40%", transform: "translate(-50%, -50%)"}}
         diameter={100}
@@ -169,10 +182,20 @@ function App() {
         <label id={'wind'}>Wind Speed (MPH)</label>
     </White>
     </div>
-    </Item>
-          {/* <Sparklines data={[6, 3, 12, 3]} limit={5} width={700} height={50} margin={1}>
+        <Sparklines data={historicalTemp} limit={5} width={700} height={50} margin={1}>
           <SparklinesLine color="blue" />
-        </Sparklines> */}
+        </Sparklines>
+        <h3>Temperature History</h3>
+      <Sparklines data={historicalHumidity} limit={5} width={700} height={50} margin={1}>
+      <SparklinesLine color="blue" />
+    </Sparklines>
+    <h3>Humidity History</h3>
+    <Sparklines data={historicalWind} limit={5} width={700} height={50} margin={1}>
+      <SparklinesLine color="blue" />
+    </Sparklines>
+    <h3>Wind Speed History</h3>
+    </div>
+    </Item>
         </Grid>
         <Grid 
         item
