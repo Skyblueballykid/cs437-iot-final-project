@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 import App from './App'
 import Audio from "./pages/audio";
-import Item from "./pages/item";
+// import Item from "./pages/item";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -25,13 +25,13 @@ ReactDOM.render(
       <Breadcrumbs aria-label="breadcrumb">
       <Link to="/">Home</Link>
       <Link to="/audio">Audio Recognition</Link>
-      <Link to="/item">Item Recognition</Link>
+      {/* <Link to="/item">Item Recognition</Link> */}
       </Breadcrumbs>
     </div>
   <Routes>
       <Route path="/" element={<App />} />
       <Route path="audio" element={<Audio />} />
-      <Route path="item" element={<Item />} />
+      {/* <Route path="item" element={<Item />} /> */}
     </Routes>
   </BrowserRouter>
   </React.StrictMode>,
