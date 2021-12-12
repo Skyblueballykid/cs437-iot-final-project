@@ -1,0 +1,242 @@
+[
+  [
+    {
+      "timestamp": "2021-12-11 23:26",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 0,
+      "gps_latitude": 32.557050977,
+      "gps_longitude": -83.656860476
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:27",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 0,
+      "gps_latitude": 32.557050977,
+      "gps_longitude": -83.656860476
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:28",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 0,
+      "gps_latitude": 32.557046154,
+      "gps_longitude": -83.656861652
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:29",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 6,
+      "gps_latitude": 32.557046154,
+      "gps_longitude": -83.656861652
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:30",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 7,
+      "gps_latitude": 32.557046154,
+      "gps_longitude": -83.656861652
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:31",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 5,
+      "gps_latitude": 32.55704669,
+      "gps_longitude": -83.656872235
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:32",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 6,
+      "gps_latitude": 32.55704669,
+      "gps_longitude": -83.656872235
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:33",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 6,
+      "gps_latitude": 32.55704669,
+      "gps_longitude": -83.656872235
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:34",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 7,
+      "gps_latitude": 32.55703909,
+      "gps_longitude": -83.656872235
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:35",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 4,
+      "gps_latitude": 32.55703909,
+      "gps_longitude": -83.656872235
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:36",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 4,
+      "gps_latitude": 32.55703909,
+      "gps_longitude": -83.656872235
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:37",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 3,
+      "gps_latitude": 32.55703909,
+      "gps_longitude": -83.656872235
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:38",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 6,
+      "gps_latitude": 32.55703909,
+      "gps_longitude": -83.656872235
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:39",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 1,
+      "gps_latitude": 32.557039626,
+      "gps_longitude": -83.656882817
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:40",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 1,
+      "gps_latitude": 32.557039626,
+      "gps_longitude": -83.656882817
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:41",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 6,
+      "gps_latitude": 32.557039626,
+      "gps_longitude": -83.656882817
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:42",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 7,
+      "gps_latitude": 32.557039626,
+      "gps_longitude": -83.656882817
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:43",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 7,
+      "gps_latitude": 32.557032026,
+      "gps_longitude": -83.656882817
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:44",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 2,
+      "gps_latitude": 32.557034267,
+      "gps_longitude": -83.656873411
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:45",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 4,
+      "gps_latitude": 32.557038554,
+      "gps_longitude": -83.656861652
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:46",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 4,
+      "gps_latitude": 32.557038554,
+      "gps_longitude": -83.656861652
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:47",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 5,
+      "gps_latitude": 32.557038554,
+      "gps_longitude": -83.656861652
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:48",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 4,
+      "gps_latitude": 32.557033731,
+      "gps_longitude": -83.656862829
+    }
+  ],
+  [
+    {
+      "timestamp": "2021-12-11 23:49",
+      "temperature_fahrenheit": 76,
+      "humidity": 50,
+      "wind_mph": 6,
+      "gps_latitude": 32.557033731,
+      "gps_longitude": -83.656862829
+    }
+  ]
+]

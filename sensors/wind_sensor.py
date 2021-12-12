@@ -37,7 +37,7 @@ def main():
                     timestamp=str(datetime.datetime.now())[:16],
                     wind_speed=arduino_serial_out.strip(),
                 )
-                json_dumped = json.dumps([wind_sensor.__rep__()])
+                json_dumped = json.dumps([wind_sensor.__rep__()], indent=4)
                 write_file(json_dumped, data_path + FILE_NAME)
 
 
