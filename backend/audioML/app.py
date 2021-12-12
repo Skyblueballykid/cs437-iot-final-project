@@ -11,8 +11,9 @@ CORS(app, support_credentials=True)
 
 @app.route('/sound')
 @cross_origin(supports_credentials=True)
-def get_current_time():    
-    response = jsonify({'sound': 'Birds'})
+def get_current_time():
+    sound = ap.process_wav('../../sensors/test-data/thunder.wav')    
+    response = jsonify({'sound': sound})
     return response
 
 def main():

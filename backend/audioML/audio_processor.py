@@ -60,7 +60,7 @@ def get_live_input():
                     rate = RATE,
                     input = True,
                     frames_per_buffer = CHUNK,
-                    input_device_index = 1)
+                    input_device_index = 2)
 
     #discard first 1 second
     for i in range(0, NFRAMES):
@@ -208,7 +208,7 @@ def run_inference(waveform):
         print(labels[top_class_index])
         return labels[top_class_index]
     else:
-        return " "
+        return "No weather sound detected"
 
 def process_wav(wav_file):
     sampling_rate = 16000
