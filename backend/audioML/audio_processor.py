@@ -210,6 +210,17 @@ def run_inference(waveform):
     else:
         return " "
 
+def process_wav(wav_file):
+    sampling_rate = 16000
+    # get audio data 
+    original_rate, waveform = wavfile.read(wav_file)
+
+    # resample data
+    number_of_samples = round(len(waveform) * float(sampling_rate) / original_rate)
+    waveform = signal.resample(waveform, number_of_samples)
+    # run inference
+    return run_inference(waveform)
+
 def main():
 
     # create parser
@@ -228,18 +239,7 @@ def main():
 
     # test WAV file
     if args.wavfile_name:
-        sampling_rate = 16000
-        wavfile_name = args.wavfile_name
-        
-        # get audio data 
-        original_rate, waveform = wavfile.read(wavfile_name)
-
-        # resample data
-        number_of_samples = round(len(waveform) * float(sampling_rate) / original_rate)
-        waveform = signal.resample(waveform, number_of_samples)
-        
-        # run inference
-        run_inference(waveform)
+        process_wav(args.wavfile_name)
     else:
         get_live_input()
 
