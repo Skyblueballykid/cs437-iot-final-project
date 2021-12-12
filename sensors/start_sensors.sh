@@ -30,3 +30,13 @@ else
   echo "Temperature and humidity not running starting"
   nohup python3 /home/pi/cs437-iot-final-project/sensors/temp_sensor.py &
 fi
+
+upload_historical=`ps -eaf | grep -i upload_historical |sed '/^$/d' | wc -l`
+echo $upload_historical
+if [[ $upload_historical > 1 ]]
+then
+  echo "Historical upload service is running"
+else
+  echo "Historical upload service not running starting"
+  nohup python3 /home/pi/cs437-iot-final-project/sensors/upload_historical.py &
+fi
