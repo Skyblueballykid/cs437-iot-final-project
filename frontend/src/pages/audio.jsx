@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { ReactMic } from 'react-mic';
 import AudioAnalyser from './AudioAnalyser';
+import AudioEndpoint from './AudioEndpoint';
 
 class Audio extends Component {
   constructor(props) {
@@ -62,6 +62,9 @@ class Audio extends Component {
           </button>
         </div>
         {this.state.audio ? <AudioAnalyser audio={this.state.audio} /> : ''}
+        <div>
+          <AudioEndpoint></AudioEndpoint>
+        </div>
       </div>
     );
   }
