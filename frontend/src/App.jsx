@@ -62,6 +62,8 @@ var humidityOptions = {
   labels: ["Humidity"]
 };
 
+var serverPort = 65432;
+var server_addr = "192.168.1.48"
 
 function App() {
 

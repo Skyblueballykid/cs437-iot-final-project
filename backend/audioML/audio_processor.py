@@ -13,6 +13,7 @@ import argparse
 import pyaudio
 import wave
 import time
+import librosa
 import zipfile
 from tflite_runtime.interpreter import Interpreter
 
@@ -59,7 +60,7 @@ def get_live_input():
                     rate = RATE,
                     input = True,
                     frames_per_buffer = CHUNK,
-                    input_device_index = 1)
+                    input_device_index = 2)
 
     #discard first 1 second
     for i in range(0, NFRAMES):
@@ -81,7 +82,7 @@ def get_live_input():
             # reshape for input 
             audio_data = audio_data.reshape((nbytes, 2))
             # run inference on audio data 
-            run_inference(audio_data)
+            return run_inference(audio_data)
     except KeyboardInterrupt:
         print("exiting...")
            
@@ -205,7 +206,20 @@ def run_inference(waveform):
 
     if labels[top_class_index] in (weather_sounds or animal_sounds):
         print(labels[top_class_index])
+        return labels[top_class_index]
+    else:
+        return "No weather sound detected"
 
+def process_wav(wav_file):
+    sampling_rate = 16000
+    # get audio data 
+    original_rate, waveform = wavfile.read(wav_file)
+
+    # resample data
+    number_of_samples = round(len(waveform) * float(sampling_rate) / original_rate)
+    waveform = signal.resample(waveform, number_of_samples)
+    # run inference
+    return run_inference(waveform)
 
 def main():
 
@@ -225,11 +239,7 @@ def main():
 
     # test WAV file
     if args.wavfile_name:
-        wavfile_name = args.wavfile_name
-        # get audio data 
-        rate, waveform = wavfile.read(wavfile_name)
-        # run inference
-        run_inference(waveform)
+        process_wav(args.wavfile_name)
     else:
         get_live_input()
 
