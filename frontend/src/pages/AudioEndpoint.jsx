@@ -2,26 +2,19 @@ import React, { useState, useEffect } from 'react';
 
 
 function flaskEndpoint() {
-  const [currentTime, setCurrentTime] = useState(0);
+  const [currentSound, setCurrentSound] = useState(0);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:5000/test',{headers : { 
+    fetch('http://127.0.0.1:5000/sound',{headers : { 
       'Content-Type': 'application/json',
       'Accept': 'application/json'
      }}).then(res => res.json()).then(data => {
-      setCurrentTime(data.time);
+      setCurrentSound(data.sound);
     });
   }, []);
 
   return (
-    <div>
-      <header>
-
-        ... no changes in this part ...
-
-        <p>The current time is {currentTime}.</p>
-      </header>
-    </div>
+        <p>Sound detected: {currentSound}.</p>
   );
 }
 

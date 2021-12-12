@@ -63,7 +63,7 @@ class Audio extends Component {
         </div>
         {this.state.audio ? <AudioAnalyser audio={this.state.audio} /> : ''}
         <div>
-          <AudioEndpoint></AudioEndpoint>
+        {this.state.audio ? <AudioEndpoint/> : ''}
         </div>
       </div>
     );

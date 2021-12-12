@@ -2,17 +2,17 @@ from flask import Flask
 from flask import render_template
 from flask import request, jsonify
 from flask_cors import CORS, cross_origin
-#import audio_processor as ap
+import audio_processor as ap
 import time
 '''Implementation of audio API using url params'''
 
 app = Flask(__name__)
 CORS(app, support_credentials=True)
 
-@app.route('/test')
+@app.route('/sound')
 @cross_origin(supports_credentials=True)
 def get_current_time():    
-    response = jsonify({'time': time.time()})
+    response = jsonify({'sound': 'Birds'})
     return response
 
 def main():
