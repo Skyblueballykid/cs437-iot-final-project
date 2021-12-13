@@ -24,6 +24,8 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 
+const MapMarker = ({ text }) => <div>{text}</div>;
+
 var humidityOptions = {
   chart: {
     height: 80,
@@ -115,11 +117,11 @@ function App() {
     setHistoricalTemp(res.map(item => item.map(i => i.temperature_fahrenheit)));
     setHistoricalHumidity(res.map(item => item.map(i => i.humidity)));
     setHistoricalWind(res.map(item => item.map(i => i.wind_mph)));
-    console.log(res);
-    console.log(hist);
-    console.log(historicalTemp);
-    console.log(historicalHumidity);
-    console.log(historicalWind);
+    // console.log(res);
+    // console.log(hist);
+    // console.log(historicalTemp);
+    // console.log(historicalHumidity);
+    // console.log(historicalWind);
   }
     fetchData();
     fetchHistorical();
@@ -130,7 +132,7 @@ function App() {
     <Box sx={{ flexGrow: 1 }}>
     <br/>
       {timestamp ? <><p><b>Date and time: {timestamp}</b> | Image: Clear | Temp: Room Temperature | Humidity: Comfortable | Wind: Strong</p></> : null}
-      
+      <p>Weather Appropriate Item Recommendations: sneakers, flip flops, shorts, tennis racket, basketball, golf drivers, rockclimbing gear, flashlight, mosquito repellent</p>
       <Grid 
       container
       spacing={1}>
@@ -213,7 +215,13 @@ function App() {
             bootstrapURLKeys={{ key: REACT_APP_GOOGLE_MAPS_API_KEY }}
             center={toggle ? mapState.center : mapProps.center}
             defaultZoom={mapProps.zoom}
-        ></GoogleMapReact></div>
+        >
+        <MapMarker
+        lat={mapProps.center.lat}
+        lng={mapProps.center.lng}
+        text="Current Location"
+        />
+        </GoogleMapReact></div>
           {lat && long ? <p>Latitude: {lat}, &nbsp; Longitude: {long}</p> : null}
           </Item>
         </Grid>
@@ -221,7 +229,7 @@ function App() {
         <Grid item xs>
         <Item>Realtime Weather Camera
             <br/>
-            <div style={{ height: '30vh', width: '100%' }}>
+            <div style={{ height: '29vh', width: '100%' }}>
             <iframe src="https://68.225.115.149:8443/" width="100%" height="220" title="Weather Cam"></iframe>
             </div>
           </Item>
