@@ -208,7 +208,7 @@ function App() {
         xs={6}>
         <Grid item xs={6}>
         <Item>Map
-          <div style={{ height: '25vh', width: '100%' }}>
+          <div style={{ height: '40vh', width: '100%' }}>
           <GoogleMapReact
             bootstrapURLKeys={{ key: REACT_APP_GOOGLE_MAPS_API_KEY }}
             center={toggle ? mapState.center : mapProps.center}
@@ -221,7 +221,7 @@ function App() {
         <Grid item xs>
         <Item>Realtime Weather Camera
             <br/>
-            <div style={{ height: '33vh', width: '100%' }}>
+            <div style={{ height: '30vh', width: '100%' }}>
             <iframe src="https://68.225.115.149:8443/" width="100%" height="220" title="Weather Cam"></iframe>
             </div>
           </Item>
