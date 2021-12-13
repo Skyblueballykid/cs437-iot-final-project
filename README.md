@@ -9,6 +9,3 @@ yarn dev
 
 Build frontend: 
 yarn build
-
-Backend Instructions: 
-TODO
