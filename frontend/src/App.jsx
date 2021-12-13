@@ -141,7 +141,7 @@ function App() {
         alignItems="center" 
         xs={6}>
           <Item>
-          <div style={{ height: '85vh', width: '100%' }}>
+          <div style={{ height: '87vh', width: '100%' }}>
           <div style={{ height: '45vh', width: '100%' }}>
           <br/>
           Sensor Readings

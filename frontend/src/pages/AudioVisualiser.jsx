@@ -36,7 +36,11 @@ class AudioVisualiser extends React.Component {
   }
 
   render() {
-    return (<canvas width="500" height="500" ref={this.canvas} />);
+    return (
+    
+    <canvas width="1400" height="500" ref={this.canvas} />
+    
+    );
   }
 }
 
