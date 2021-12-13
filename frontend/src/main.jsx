@@ -16,7 +16,7 @@ import Audio from "./pages/audio";
 ReactDOM.render(
   <React.StrictMode>
   <BrowserRouter>
-  <Typography variant="h3">Team Thundercats Realtime Weather Detection Final Project</Typography> 
+  <Typography variant="h4">Team Thundercats Realtime Weather Detection Final Project</Typography> 
   <br/>
   <Typography variant="h6">UIUC CS 437: Internet of Things</Typography> 
       <br/>

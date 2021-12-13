@@ -129,7 +129,8 @@ function App() {
     <>
     <Box sx={{ flexGrow: 1 }}>
     <br/>
-      {timestamp ? <p><b>Date and time: {timestamp}</b></p> : null}
+      {timestamp ? <><p><b>Date and time: {timestamp}</b> | Image: Clear | Temp: Room Temperature | Humidity: Comfortable | Wind: Strong</p></> : null}
+      
       <Grid 
       container
       spacing={1}>
@@ -141,7 +142,7 @@ function App() {
         alignItems="center" 
         xs={6}>
           <Item>
-          <div style={{ height: '85vh', width: '100%' }}>
+          <div style={{ height: '87vh', width: '100%' }}>
           <div style={{ height: '45vh', width: '100%' }}>
           <br/>
           Sensor Readings
